@@ -1,0 +1,35 @@
+Service axios lay du lieu tu backend sang react
+
+// createAsyncThunk được sử dụng để tạo một thunk không đồng bộ ( fetchDataThunk) đóng gói logic để tìm nạp dữ liệu từ API.
+
+// Trường extraReducerstrong createSliceđược sử dụng để xử lý các hành động này và cập nhật trạng thái Redux tương ứng.
+
+// login.pending: Điều này được gửi đi khi yêu cầu  đang chờ xử lý. Nó đặt isLoadingthành đúng.
+
+// login.fulfilled: Điều này được gửi đi khi yêu cầu thành công. Nó cập nhật trạng thái bằng cách đặt isLoadingthành false và isSuccess: true
+
+// login.rejected: Điều này được gửi đi khi yêu cầu bị từ chối (thất bại)
+
+export const login = createAsyncThunk
+  // Tên action
+  'user/login',
+  - thunkAPI: Nó nhận được thunkAPInhư một đối số.
+% /////////////////////////////////////
+Cách viết API":
+1: Lấy Api bằng Axios qua đường link get, post,... từ bạckend sang => Viết ở folder Service
+2: Lấy api backend sang Slice để xử lý dữ liệu 
++ Xử lý bất đồng bộ và trả ra kết qủa
++ Tạo State ban đầu
++ Nếu thành công sẽ gắn payload cho products
+3: Đưa sang store Reducer sẽ lấy được tất cả trên project
+4: đưa lên client 
++ Gửi hành động lên bằng dispatch
++ truy xuất bằng hàm useSelect để lấy dữ liệu 
+
+% //////////////////////
+-Yup: Xác định quy tắc xác thực cho các trường biểu mẫu của bạn
+Ví dụ, khi bạn khai báo onChange={formik.handleChange},handleChange của Formik để cập nhật trạng thái của form. 
+Điều này giúp Formik theo dõi giá trị của mỗi trường và thực hiện các kiểm tra hợp lệ.
+- onSubmit={formik.handleSubmit}: trước khi fỏrm được gửi, Sử dụng handleSubmir để xử lý các sự kiện bên trong xem nó đã đúng chưa
+onBlur={formik.handleBlur}: Tóm lại là hàm này khi người dùng nhấn vào nó sẽ kiểm tra xem có hợp lệ hay không qua schema validate(yup)
+value={formik.values.fieldName} = nó tương ứng với trường trong state để đồng bộ hoá
